@@ -13,8 +13,10 @@ export class GameEngine {
   constructor(canvas: HTMLCanvasElement) {
     this.canvas = canvas
     this.ctx = canvas.getContext('2d') as CanvasRenderingContext2D
-    this.worldSize = hasSize({ x: 0, y: 0 })
-    this.resizeCanvas()
+    this.worldSize = hasSize({ 
+      x: this.canvas.width,
+      y: this.canvas.height
+    })
     this.world = hasPosition(
       {
         x: this.worldSize.x / 2,
@@ -37,14 +39,6 @@ export class GameEngine {
    */
   public play() {
     this.isPaused = false
-  }
-
-  /**
-   * Trigger resize calculations.
-   */
-  public resizeCanvas() {
-    this.worldSize.x = this.canvas.getBoundingClientRect().width
-    this.worldSize.y = this.canvas.getBoundingClientRect().height
   }
 
   /**
