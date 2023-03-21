@@ -1,0 +1,10 @@
+{
+  "name": "super-simple-game-engine",
+  "version": "1.0.0",
+  "description": "A super simple HTML Canvas game engine.",
+  "main": "index.js",
+  "repository": "git@git.thewiznerd.com:Brett/super-simple-game-engine.git",
+  "author": "Brett Cooper",
+  "license": "MIT",
+  "private": true
+}
