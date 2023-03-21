@@ -7,7 +7,7 @@ declare global {
   type DrawCallback = (ctx: CanvasRenderingContext2D) => void
 
   interface GameEntity {
-    simulator: GameEngine
+    game: GameEngine
     remove: () => void
     update?: UpdateCallback
     draw?: DrawCallback

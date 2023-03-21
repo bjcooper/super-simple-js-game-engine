@@ -6,7 +6,6 @@ export abstract class GameEntityBase implements GameEntity {
   constructor(game: GameEngine) {
     this.game = game
   }
-  simulator: GameEngine
 
   remove() {
     this.game.unregisterEntity(this)

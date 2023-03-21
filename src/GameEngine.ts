@@ -2,6 +2,7 @@ import { hasSize } from './composition/hasSize'
 import { hasPosition } from './composition/hasPosition'
 
 export class GameEngine {
+  protected isPaused = true
   protected lastRenderMs = 0
   protected canvas: HTMLCanvasElement
   protected ctx: CanvasRenderingContext2D
@@ -12,10 +13,8 @@ export class GameEngine {
   constructor(canvas: HTMLCanvasElement) {
     this.canvas = canvas
     this.ctx = canvas.getContext('2d') as CanvasRenderingContext2D
-    this.worldSize = hasSize({
-      x: this.canvas.width,
-      y: this.canvas.height
-    })
+    this.worldSize = hasSize({ x: 0, y: 0 })
+    this.resizeCanvas()
     this.world = hasPosition(
       {
         x: this.worldSize.x / 2,
@@ -23,12 +22,29 @@ export class GameEngine {
       },
       this.worldSize
     )
-    this.initEntities()
     this.step(0)
   }
 
-  protected initEntities() {
-    this.entities.length = 0
+  /**
+   * Pause game play.
+   */
+  public pause() {
+    this.isPaused = true
+  }
+
+  /**
+   * Start or resume game play.
+   */
+  public play() {
+    this.isPaused = false
+  }
+
+  /**
+   * Trigger resize calculations.
+   */
+  public resizeCanvas() {
+    this.worldSize.x = this.canvas.getBoundingClientRect().width
+    this.worldSize.y = this.canvas.getBoundingClientRect().height
   }
 
   /**
@@ -36,22 +52,22 @@ export class GameEngine {
    */
   protected step(timeMs: DOMHighResTimeStamp) {
     const deltaMs = timeMs - this.lastRenderMs
+    if (!this.isPaused) {
+      // Update loop.
+      for (const entity of this.entities) {
+        if (entity.update) {
+          entity.update(deltaMs)
+        }
+      }
 
-    // Update loop.
-    for (const entity of this.entities) {
-      if (entity.update) {
-        entity.update(deltaMs)
+      // Draw loop.
+      this.ctx.clearRect(0, 0, this.worldSize.x, this.worldSize.y)
+      for (const entity of this.entities) {
+        if (entity.draw) {
+          entity.draw(this.ctx)
+        }
       }
     }
-
-    // Draw loop.
-    this.ctx.clearRect(0, 0, this.worldSize.x, this.worldSize.y)
-    for (const entity of this.entities) {
-      if (entity.draw) {
-        entity.draw(this.ctx)
-      }
-    }
-
     this.lastRenderMs = timeMs
     requestAnimationFrame(time => this.step(time))
   }
