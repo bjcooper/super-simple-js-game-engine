@@ -1,6 +1,3 @@
-import { hasSize } from './composition/hasSize'
-import { hasPosition } from './composition/hasPosition'
-
 export class GameEngine {
   protected isPaused = true
   protected lastRenderMs = 0
