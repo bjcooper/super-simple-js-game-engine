@@ -1,14 +1,20 @@
 {
-  "name": "super-simple-game-engine",
-  "version": "1.0.0",
-  "description": "A super simple HTML Canvas game engine.",
-  "main": "index.js",
-  "repository": "git@git.thewiznerd.com:Brett/super-simple-game-engine.git",
   "author": "Brett Cooper",
-  "license": "MIT",
-  "private": true,
+  "description": "A super simple HTML JS game engine.",
   "devDependencies": {
+    "@types/node": "^18.15.11",
     "eslint": "^8.36.0",
-    "typescript": "^5.0.2"
-  }
+    "typescript": "^5.0.2",
+    "unplugin-auto-import": "^0.15.2",
+    "vite": "^4.2.1"
+  },
+  "license": "MIT",
+  "module": "index.ts",
+  "name": "super-simple-game-engine",
+  "private": true,
+  "repository": "git@github.com:bjcooper/super-simple-js-game-engine.git",
+  "scripts": {
+    "dev": "vite dev"
+  },
+  "version": "1.0.0"
 }

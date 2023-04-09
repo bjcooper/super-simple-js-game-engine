@@ -24,5 +24,4 @@ declare global {
     left: () => number
     right: () => number
   }
-
 }
