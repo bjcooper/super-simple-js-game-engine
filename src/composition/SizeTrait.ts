@@ -1,4 +1,4 @@
-export class Size {
+export class SizeTrait {
   size: Vector2D
 
   constructor(initialSize: Vector2D) {
@@ -8,8 +8,8 @@ export class Size {
     }
   }
 
-  static use(initialSize: Vector2d) {
-    return new Size(initialSize)
+  static use(initialSize: Vector2D) {
+    return new SizeTrait(initialSize)
   }
 
   get width() {

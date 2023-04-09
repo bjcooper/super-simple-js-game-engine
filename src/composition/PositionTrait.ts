@@ -1,10 +1,12 @@
-export class Position {
+import { SizeTrait } from "./SizeTrait"
+
+export class PositionTrait {
   private _position: Vector2D
-  private _size: Size
+  private _size: SizeTrait
 
   constructor(
     initialPosition: Vector2D,
-    size: Size
+    size: SizeTrait
   ) {
     this._position = {
       x: Math.round(initialPosition.x),
@@ -15,9 +17,9 @@ export class Position {
 
   static use(
     initialPosition: Vector2D,
-    size: Size
+    size: SizeTrait
   ) {
-    return new Position(initialPosition, size)
+    return new PositionTrait(initialPosition, size)
   }
 
   get x() {
@@ -45,19 +47,19 @@ export class Position {
   }
 
   get left() {
-    return Math.round(this.x - this._size.x / 2)
+    return Math.round(this.x - this._size.width / 2)
   }
 
   get right() {
-    return Math.round(this.x + this._size.x / 2)
+    return Math.round(this.x + this._size.width / 2)
   }
 
   get top() {
-    return Math.round(this.y - this._size.y / 2)
+    return Math.round(this.y - this._size.height / 2)
   }
 
   get bottom() {
-    return Math.round(this.y + this._size.y / 2)
+    return Math.round(this.y + this._size.height / 2)
   }
 
   contains(point: Vector2D) {
@@ -82,8 +84,8 @@ export class Position {
     ctx.fillRect(
       this.left,
       this.top,
-      this._size.x,
-      this._size.y
+      this._size.width,
+      this._size.height
     )
   }
 }

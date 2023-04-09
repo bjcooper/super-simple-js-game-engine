@@ -1,6 +1,6 @@
-export class State<S extends string> {
+export class StateTrait<S extends string> {
   parent: object
-  age = Age.use()
+  age = AgeTrait.use()
   deltsMs = 0
   previousState: null | S = null
   currentState:  null | S = null
@@ -10,7 +10,7 @@ export class State<S extends string> {
   }
 
   static use(parent: object) {
-    return new State(parent)
+    return new StateTrait(parent)
   }
 
   protected getStateCallback(baseName: string, state: null | S) {

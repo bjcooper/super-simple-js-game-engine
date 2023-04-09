@@ -1,12 +1,12 @@
-export class Age {
-  private _ms: number;
+export class AgeTrait {
+  _ms: number;
 
   constructor(initialAgeMs: number) {
     this._ms = initialAgeMs
   }
 
   static use(initialAgeMs = 0) {
-    return new Age(initialAgeMs)
+    return new AgeTrait(initialAgeMs)
   }
 
   get ms() {
