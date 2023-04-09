@@ -1,28 +1,19 @@
 import { defineConfig } from 'vite'
 import AutoImport from 'unplugin-auto-import/vite'
-import path from 'path'
 
 export default defineConfig({
-  build: {
-    lib: {
-      formats: ['cjs'],
-      entry: path.resolve(__dirname, 'index.ts'),
-      fileName: (format) => 'index.js'
-    }
+  optimizeDeps: {
+    disabled: true
   },
   plugins: [
     AutoImport({
-      dts: 'index.ts',
-      include: [
-        /\.ts$/
+      dts: 'src/index.d.ts',
+      exclude: [
+        'src/index.d.ts'
       ],
       dirs: [
-        'src',
-        'src/composition',
+        './src/**',
       ]
     })
   ],
-  optimizeDeps: {
-    disabled: true
-  }
 })

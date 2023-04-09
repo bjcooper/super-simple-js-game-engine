@@ -10,14 +10,14 @@ export class GameEngine {
   constructor(canvas: HTMLCanvasElement) {
     this.canvas = canvas
     this.ctx = canvas.getContext('2d') as CanvasRenderingContext2D
-    this.worldSize = hasSize({ 
+    this.worldSize = SizeTrait.use({ 
       x: this.canvas.width,
       y: this.canvas.height
     })
-    this.world = hasPosition(
+    this.world = PositionTrait.use(
       {
-        x: this.worldSize.x / 2,
-        y: this.worldSize.y / 2
+        x: this.worldSize.width / 2,
+        y: this.worldSize.height / 2
       },
       this.worldSize
     )
@@ -52,7 +52,7 @@ export class GameEngine {
       }
 
       // Draw loop.
-      this.ctx.clearRect(0, 0, this.worldSize.x, this.worldSize.y)
+      this.ctx.clearRect(0, 0, this.worldSize.width, this.worldSize.height)
       for (const entity of this.entities) {
         if (entity.draw) {
           entity.draw(this.ctx)

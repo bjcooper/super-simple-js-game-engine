@@ -1,5 +1,6 @@
 {
   "author": "Brett Cooper",
+  "dependencies": {},
   "description": "A super simple HTML JS game engine.",
   "devDependencies": {
     "@types/node": "^18.15.11",
@@ -14,7 +15,7 @@
   "private": true,
   "repository": "git@github.com:bjcooper/super-simple-js-game-engine.git",
   "scripts": {
-    "dev": "vite dev"
+    "dev": "vite"
   },
   "version": "1.0.0"
 }
