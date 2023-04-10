@@ -1,5 +1,6 @@
-import { PositionTrait } from "./composition/PositionTrait"
-import { SizeTrait } from "./composition/SizeTrait"
+import type { GameEntity } from '.'
+import { PositionTrait } from './composition/PositionTrait'
+import { SizeTrait } from './composition/SizeTrait'
 
 export class GameEngine {
   protected isPaused = true
@@ -13,7 +14,7 @@ export class GameEngine {
   constructor(canvas: HTMLCanvasElement) {
     this.canvas = canvas
     this.ctx = canvas.getContext('2d') as CanvasRenderingContext2D
-    this.worldSize = SizeTrait.use({ 
+    this.worldSize = SizeTrait.use({
       x: this.canvas.width,
       y: this.canvas.height
     })

@@ -4,7 +4,7 @@ export class SizeTrait {
   constructor(initialSize: Vector2D) {
     this.size = {
       x: 0,
-      y: 0,
+      y: 0
     }
     this.width = initialSize.x
     this.height = initialSize.y
@@ -30,8 +30,7 @@ export class SizeTrait {
     this.size.y = Math.round(_height)
   }
 
-
   matches(other: Vector2D) {
-    return (this.size.x === other.x && this.size.y === other.y)
+    return this.size.x === other.x && this.size.y === other.y
   }
 }

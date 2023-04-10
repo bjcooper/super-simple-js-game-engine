@@ -1,11 +1,11 @@
-import { AgeTrait } from "./AgeTrait"
+import { AgeTrait } from './AgeTrait'
 
 export class StateTrait<S extends string> {
   parent: object
   age = AgeTrait.use()
   deltsMs = 0
   previousState: null | S = null
-  currentState:  null | S = null
+  currentState: null | S = null
 
   constructor(parent: object) {
     this.parent = parent
@@ -18,7 +18,10 @@ export class StateTrait<S extends string> {
   protected getStateCallback(baseName: string, state: null | S) {
     if (state) {
       const cb = `${baseName}${state}`
-      if (cb in parent && typeof parent[cb as keyof typeof parent] === 'function') {
+      if (
+        cb in parent &&
+        typeof parent[cb as keyof typeof parent] === 'function'
+      ) {
         return parent[cb as keyof typeof parent] as () => void
       }
     }
@@ -37,7 +40,7 @@ export class StateTrait<S extends string> {
   draw(ctx: CanvasRenderingContext2D) {
     const cb = this.getStateCallback('drawState', this.currentState)
     if (cb) {
-      (cb as DrawCallback).call(parent, ctx)
+      ;(cb as DrawCallback).call(parent, ctx)
     }
   }
 

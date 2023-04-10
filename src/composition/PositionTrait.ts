@@ -1,13 +1,10 @@
-import { SizeTrait } from "./SizeTrait"
+import type { SizeTrait } from './SizeTrait'
 
 export class PositionTrait {
   private _position: Vector2D
   private _size: SizeTrait
 
-  constructor(
-    initialPosition: Vector2D,
-    size: SizeTrait
-  ) {
+  constructor(initialPosition: Vector2D, size: SizeTrait) {
     this._position = {
       x: Math.round(initialPosition.x),
       y: Math.round(initialPosition.y)
@@ -15,10 +12,7 @@ export class PositionTrait {
     this._size = size
   }
 
-  static use(
-    initialPosition: Vector2D,
-    size: SizeTrait
-  ) {
+  static use(initialPosition: Vector2D, size: SizeTrait) {
     return new PositionTrait(initialPosition, size)
   }
 
@@ -37,7 +31,6 @@ export class PositionTrait {
   set y(_y: number) {
     this._position.y = Math.round(_y)
   }
-
 
   get topLeft() {
     return {
@@ -81,11 +74,6 @@ export class PositionTrait {
   }
 
   fillRect(ctx: CanvasRenderingContext2D) {
-    ctx.fillRect(
-      this.left,
-      this.top,
-      this._size.width,
-      this._size.height
-    )
+    ctx.fillRect(this.left, this.top, this._size.width, this._size.height)
   }
 }

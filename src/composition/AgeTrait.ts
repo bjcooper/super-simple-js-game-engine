@@ -1,5 +1,5 @@
 export class AgeTrait {
-  _ms: number;
+  _ms: number
 
   constructor(initialAgeMs: number) {
     this._ms = initialAgeMs
