@@ -1,3 +1,6 @@
+import { PositionTrait } from "./composition/PositionTrait"
+import { SizeTrait } from "./composition/SizeTrait"
+
 export class GameEngine {
   protected isPaused = true
   protected lastRenderMs = 0

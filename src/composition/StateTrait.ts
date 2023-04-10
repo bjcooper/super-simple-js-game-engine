@@ -1,3 +1,5 @@
+import { AgeTrait } from "./AgeTrait"
+
 export class StateTrait<S extends string> {
   parent: object
   age = AgeTrait.use()

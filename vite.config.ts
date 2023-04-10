@@ -1,19 +1,16 @@
+import path from 'path'
 import { defineConfig } from 'vite'
-import AutoImport from 'unplugin-auto-import/vite'
+import dts from 'vite-plugin-dts'
 
 export default defineConfig({
-  optimizeDeps: {
-    disabled: true
+  build: {
+    lib: {
+      entry: path.resolve(__dirname, 'src/index.ts'),
+      name: 'super-simple-js-game-engine',
+      fileName: 'super-simple-js-game-engine'
+    }
   },
   plugins: [
-    AutoImport({
-      dts: 'src/index.d.ts',
-      exclude: [
-        'src/index.d.ts'
-      ],
-      dirs: [
-        './src/**',
-      ]
-    })
-  ],
+    dts()
+  ]
 })
