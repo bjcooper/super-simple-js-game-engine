@@ -1,5 +1,6 @@
-import { PositionTrait } from "./composition/PositionTrait";
-import { SizeTrait } from "./composition/SizeTrait";
+import type { GameEntity } from '.';
+import { PositionTrait } from './composition/PositionTrait';
+import { SizeTrait } from './composition/SizeTrait';
 export declare class GameEngine {
     protected isPaused: boolean;
     protected lastRenderMs: number;

@@ -1,3 +1,4 @@
+import type { GameEntity } from '.'
 import type { GameEngine } from './GameEngine'
 
 export abstract class GameEntityBase implements GameEntity {

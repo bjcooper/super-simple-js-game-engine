@@ -1,4 +1,4 @@
-import { GameEngine } from './GameEngine';
+import type { GameEngine } from './GameEngine';
 export { GameEngine } from './GameEngine';
 export { GameEntityBase } from './GameEntityBase';
 export { AgeTrait } from './composition/AgeTrait';

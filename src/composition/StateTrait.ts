@@ -1,3 +1,4 @@
+import type { DrawCallback } from '..'
 import { AgeTrait } from './AgeTrait'
 
 export class StateTrait<S extends string> {

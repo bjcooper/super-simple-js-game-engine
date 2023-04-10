@@ -1,3 +1,4 @@
+import type { Vector2D } from '..';
 export declare class SizeTrait {
     size: Vector2D;
     constructor(initialSize: Vector2D);

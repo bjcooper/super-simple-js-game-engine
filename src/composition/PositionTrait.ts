@@ -1,3 +1,4 @@
+import type { BoundingBoxInfo, Vector2D } from '..'
 import type { SizeTrait } from './SizeTrait'
 
 export class PositionTrait {

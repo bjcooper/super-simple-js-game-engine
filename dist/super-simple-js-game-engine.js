@@ -50,12 +50,7 @@ class r {
     return this.left <= t.right() && this.right >= t.left() && this.top <= t.bottom() && this.bottom >= t.top();
   }
   fillRect(t) {
-    t.fillRect(
-      this.left,
-      this.top,
-      this._size.width,
-      this._size.height
-    );
+    t.fillRect(this.left, this.top, this._size.width, this._size.height);
   }
 }
 class n {

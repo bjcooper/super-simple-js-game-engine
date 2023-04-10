@@ -1,3 +1,5 @@
+import type { Vector2D } from '..'
+
 export class SizeTrait {
   size: Vector2D
 

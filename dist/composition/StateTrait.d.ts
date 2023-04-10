@@ -1,4 +1,4 @@
-import { AgeTrait } from "./AgeTrait";
+import { AgeTrait } from './AgeTrait';
 export declare class StateTrait<S extends string> {
     parent: object;
     age: AgeTrait;
