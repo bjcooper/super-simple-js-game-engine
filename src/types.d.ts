@@ -1,6 +1,9 @@
 import type { GameEngine } from "./src/GameEngine"
 
 declare global {
+  // The unplugin-auto-import plugin apparently skips abstract classes, so we
+  // add this manually here.
+  const GameEntityBase: typeof import('./GameEntityBase')['GameEntityBase']
 
   type UpdateCallback = (deltaMs: number) => void
 

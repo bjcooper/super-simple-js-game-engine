@@ -9,8 +9,8 @@ export class StateTrait<S extends string> {
     this.parent = parent
   }
 
-  static use(parent: object) {
-    return new StateTrait(parent)
+  static use<S extends string>(parent: object) {
+    return new StateTrait<S>(parent)
   }
 
   protected getStateCallback(baseName: string, state: null | S) {
