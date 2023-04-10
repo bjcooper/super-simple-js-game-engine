@@ -10,16 +10,16 @@
   },
   "exports": {
     ".": {
-      "import": "./dist/super-simple-js-game-engine.mjs",
-      "require": "./dist/super-simple-js-game-engine.umd.js"
+      "import": "./dist/super-simple-js-game-engine.js",
+      "require": "./dist/super-simple-js-game-engine.umd.cjs"
     }
   },
   "files": [
     "dist"
   ],
   "license": "MIT",
-  "main": "./dist/super-simple-js-game-engine.umd.js",
-  "module": "./dist/super-simple-js-game-engine.mjs",
+  "main": "./dist/super-simple-js-game-engine.cjs",
+  "module": "./dist/super-simple-js-game-engine.js",
   "name": "super-simple-js-game-engine",
   "repository": "git@github.com:bjcooper/super-simple-js-game-engine.git",
   "scripts": {
